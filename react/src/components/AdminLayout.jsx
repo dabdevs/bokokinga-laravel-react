@@ -4,7 +4,7 @@ import axiosClient from "../axios-client";
 import { useEffect } from "react";
 
 export default function AdminLayout() {
-    const {user, token, setUser, setToken} = useStateContext()
+    const {user, token, notification, setUser, setToken} = useStateContext()
 
     if(!token) {
         return <Navigate to='/login' />
@@ -40,6 +40,11 @@ export default function AdminLayout() {
                 <Link to='/users'>Users</Link> 
             </aside>
             <div className="content">
+                {notification && 
+                    <div className="notification">
+                        {notification}
+                    </div>
+                }
                 <header>
                     <div>
                         Header
