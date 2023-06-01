@@ -38,7 +38,9 @@ export default function GuestLayout() {
                     </div>
                 </div>
             </header>
-            <Outlet />
+            <div className="container py-5">
+                <Outlet />
+            </div>
         </div>
     )
 }

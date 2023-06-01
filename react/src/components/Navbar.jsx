@@ -1,5 +1,14 @@
+import { Link } from "react-router-dom";
+import { useStateContext } from "../contexts/ContextProvider"
+
 export default function Navbar({collections}) {
-    return (
+    const {cart, setCart } = useStateContext(); 
+
+    const quantity = cart.reduce((acc, currentItem) => {
+        return acc + currentItem.quantity
+    }, 0)
+
+    return ( 
         <nav className="main-nav">
             <a href="/" className="logo">
                 <img height="70" src="" alt="logo" />
@@ -15,10 +24,10 @@ export default function Navbar({collections}) {
                     </li>
                 )}
                 <li className="scroll-to-section">
-                    <a href="#">
+                    <Link to='/cart'>
                         <i className="fa fa-shopping-cart fa-2x"></i>
-                        <p className="cart-count">0</p>
-                    </a>
+                        <p className="cart-count">{quantity}</p>
+                    </Link> 
                 </li>
             </ul>
             <a className='menu-trigger'>

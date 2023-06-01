@@ -29,7 +29,7 @@ export default function ItemList() {
     return (
         <section className="section products">
             <div className="container">
-                <div className="row latest-products">
+                <div className="row">
                     {
                         products?.map((product) => {
                             return <Item key={product.id} {...product} />

@@ -1,4 +1,4 @@
-import {Navigate, createBrowserRouter} from 'react-router-dom';
+import {createBrowserRouter} from 'react-router-dom';
 import Index from './views/Index';
 import Login from './views/Login';
 import Signup from './views/Signup';
@@ -10,6 +10,7 @@ import AdminLayout from './components/AdminLayout';
 import GuestLayout from './components/GuestLayout';
 import Dashboard from './views/admin/Dashboard';
 import UserForm from './views/admin/UserForm';
+import Cart from './views/Cart';
 
 const router = createBrowserRouter([
     {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
         element: <GuestLayout />,
         children: [
             {
-                path: '/',
+                path: '',
                 element: <Index />
             },
             {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <Signup />
+            },
+            {
+                path: '/cart',
+                element: <Cart />
             }
         ]
     },
