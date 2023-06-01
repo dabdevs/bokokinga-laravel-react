@@ -1,7 +1,10 @@
+import ItemList from "../components/ItemList";
+
 export default function Index() {
     return (
-        <div>
+        <>
             Index page
-        </div>
+            <ItemList />
+        </>
     )
 }
