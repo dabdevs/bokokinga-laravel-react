@@ -80,8 +80,13 @@ input:focus {
   background-color: #00a762;
 }
 
+.btn-edit {
+  margin-right: 5px;
+}
+
 .btn-delete {
   background-color: #b72424;
+  margin-left: 5px;
 }
 
 .btn-logout {
