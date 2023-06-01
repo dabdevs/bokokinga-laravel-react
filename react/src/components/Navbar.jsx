@@ -2,15 +2,15 @@ export default function Navbar({collections}) {
     return (
         <nav className="main-nav">
             <a href="/" className="logo">
-                <img height="70" src="front/img/logo.png" alt="logo" />
+                <img height="70" src="" alt="logo" />
             </a>
             <ul className="nav">
                 <li><a href="#" id="search"><i className="fa fa-search"></i></a></li>
                 {collections && (
                     <li className="submenu">
-                        <a href="javascript:;">Colecciones</a>
+                        <a href="#">Colecciones</a>
                         <ul>
-                            {collections.map((collection) => <li><a href="#">{collection.name}</a></li>)}
+                            {collections.map((collection) => <li key={collection.name}><a href="#">{collection.name}</a></li>)}
                         </ul>
                     </li>
                 )}
@@ -21,7 +21,7 @@ export default function Navbar({collections}) {
                     </a>
                 </li>
             </ul>
-            <a class='menu-trigger'>
+            <a className='menu-trigger'>
                 <span>Menu</span>
             </a>
         </nav>

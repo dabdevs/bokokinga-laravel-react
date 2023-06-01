@@ -1,8 +1,8 @@
 export default function Item({ id, name, price, slug, description, quantity, img_url }) {
 
     return (
-        <div class="col-sm-6 col-lg-3">
-            <div class="item p-2">
+        <div className="col-sm-6 col-lg-3">
+            <div className="item p-2">
                 <div role="button" className="item w-100">
                     <div className="thumb product-card">
                         <div className="hover-content">

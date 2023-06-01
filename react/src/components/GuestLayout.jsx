@@ -18,7 +18,6 @@ export default function GuestLayout() {
 
         axiosClient.get('/collections')
             .then(({ data }) => {
-                console.log(data)
                 setCollections(data.data)
                 setLoading(false)
             })
