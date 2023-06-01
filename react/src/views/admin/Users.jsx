@@ -15,7 +15,7 @@ export default function Users() {
     const getUsers = () => {
         setLoading(true)
 
-        axiosClient.get('/users')
+        axiosClient.get('/admin/users')
         .then(({data}) => {
             console.log(data)
             setUsers(data.data)
@@ -32,7 +32,7 @@ export default function Users() {
             return
         }
 
-        axiosClient.delete(`/users/${user.id}`)
+        axiosClient.delete(`/admin/users/${user.id}`)
         .then(() => {
             setNotification('User deleted successfuly!')
             getUsers()
@@ -47,7 +47,7 @@ export default function Users() {
         <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <h1>Users</h1>
-                <Link to='/users/new'>Add new</Link> 
+                <Link to='/admin/users/new'>Add new</Link> 
             </div>
             <div className="card animated fadeInDown">
                 <table>
@@ -76,7 +76,7 @@ export default function Users() {
                                 <td>{user.lastname}</td>
                                 <td>{user.created_at}</td> 
                                 <td>
-                                    <Link className="btn-edit" to={`/users/${user.id}`}>Edit</Link>
+                                    <Link className="btn-edit" to={`/admin/users/${user.id}`}>Edit</Link>
                                     <button onClick={(e) => handleDelete(user)} className="btn-delete" >Delete</button>
                                 </td>
                             </tr>

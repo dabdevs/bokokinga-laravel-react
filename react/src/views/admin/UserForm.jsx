@@ -22,7 +22,7 @@ export default function UserForm() {
     if (id) {
         useEffect(() => {
             setLoading(true)
-            axiosClient.get(`/users/${id}`)
+            axiosClient.get(`/admin/users/${id}`)
             .then(({data}) => {
                 setLoading(false)
                 setUser(data)
@@ -36,10 +36,10 @@ export default function UserForm() {
 
         if (user.id) {
             // Updating user
-            axiosClient.put(`/users/${user.id}`, user)
+            axiosClient.put(`/admin/users/${user.id}`, user)
             .then(() => {
                 setNotification('User updated successfuly!')
-                navigate('/users')
+                navigate('/admin/users')
             })
             .catch((err) => {
                 const response = err.response;
@@ -50,10 +50,10 @@ export default function UserForm() {
             })
         } else {
             // Creating user
-            axiosClient.post('/users', user)
+            axiosClient.post('/admin/users', user)
                 .then(() => {
                     setNotification('User created successfuly!')
-                    navigate('/users')
+                    navigate('/admin/users')
                 })
                 .catch((err) => {
                     const response = err.response;

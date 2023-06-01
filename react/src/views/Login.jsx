@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import { useRef, useState } from "react"
 import axiosClient from "../axios-client";
 import { useStateContext } from "../contexts/ContextProvider";
@@ -7,8 +7,11 @@ export default function Login() {
     const emailRef = useRef();
     const passwordRef = useRef();
     const [errors, setErrors] = useState();
+    const { setUser, token, setToken } = useStateContext();
 
-    const { setUser, setToken } = useStateContext();
+    if(token) {
+        return <Navigate to='/admin' />
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()

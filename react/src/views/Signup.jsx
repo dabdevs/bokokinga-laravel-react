@@ -1,5 +1,5 @@
 import { useRef, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, Navigate } from "react-router-dom"
 import axiosClient from "../axios-client";
 import { useStateContext } from "../contexts/ContextProvider";
 
@@ -11,7 +11,11 @@ export default function Signup() {
     const confirmationPasswordRef = useRef();
     const [errors, setErrors] = useState(); 
 
-    const {setUser, setToken} = useStateContext();
+    const { setUser, token, setToken } = useStateContext();
+
+    if (token) {
+        return <Navigate to='/admin' />
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()

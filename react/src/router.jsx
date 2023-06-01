@@ -1,4 +1,5 @@
 import {Navigate, createBrowserRouter} from 'react-router-dom';
+import Index from './views/Index';
 import Login from './views/Login';
 import Signup from './views/Signup';
 import Categories from './views/admin/Categories';
@@ -13,41 +14,11 @@ import UserForm from './views/admin/UserForm';
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <AdminLayout />,
-        children: [
-            {
-                path: '/dashboard',
-                element: <Dashboard />
-            },
-            {
-                path: '/products',
-                element: <Products />
-            },
-            {
-                path: '/categories',
-                element: <Categories />
-            },
-            {
-                path: '/users',
-                element: <Users />
-            },
-            {
-                path: '/users/new',
-                element: <UserForm key="userCreate"/>
-            },
-            {
-                path: '/users/:id',
-                element: <UserForm key="userUpdate" />
-            }
-        ]
-    },
-    {
-        path: '/',
         element: <GuestLayout />,
         children: [
             {
                 path: '/',
-                element: <Navigate to='/login' />
+                element: <Index />
             },
             {
                 path: '/login',
@@ -58,7 +29,37 @@ const router = createBrowserRouter([
                 element: <Signup />
             }
         ]
-    }, 
+    },
+    {
+        path: '/admin/',
+        element: <AdminLayout />,
+        children: [
+            {
+                path: '',
+                element: <Dashboard />
+            },
+            {
+                path: 'products',
+                element: <Products />
+            },
+            {
+                path: 'categories',
+                element: <Categories />
+            },
+            {
+                path: 'users',
+                element: <Users />
+            },
+            {
+                path: 'users/new',
+                element: <UserForm key="userCreate"/>
+            },
+            {
+                path: 'users/:id',
+                element: <UserForm key="userUpdate" />
+            }
+        ]
+    },
     {
         path: '*',
         element: <NotFound />

@@ -35,9 +35,9 @@ export default function AdminLayout() {
     return (
         <div id="defaultLayout">
             <aside>
-                <Link to='/products'>Productos</Link> 
-                <Link to='/categories'>Categories</Link> 
-                <Link to='/users'>Users</Link> 
+                <Link to='/admin/products'>Productos</Link> 
+                <Link to='/admin/categories'>Categories</Link> 
+                <Link to='/admin/users'>Users</Link> 
             </aside>
             <div className="content">
                 {notification && 
