@@ -46,7 +46,7 @@ export default function Item({ id, name, price, slug, description, quantity, img
     const quantityPerItem = getQuantityById(id);
 
     return (
-        <div className="col-sm-6 col-lg-3">
+        <div className="col-sm-6 col-lg-3 p-1">
             <div role="button" className="item my-2">
                 <div className="thumb product-card">
                     <div className="hover-content">
